@@ -1,3 +1,11 @@
+
+with 
+
+source as (
+    select * from {{source('stripe','payment')}}
+),
+
+payments as (
 select
     id as payment_id,
     orderid as order_id,
@@ -6,4 +14,6 @@ select
     amount / 100 as amount,
     created,
     _batched_at
-from stripe.payment
+from source)
+
+select * from payments
