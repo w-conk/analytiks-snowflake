@@ -19,7 +19,7 @@ order_totals as (
 
         order_id,
         payment_status,
-        sum(payment_amount_usd) as order_value_dollars
+        sum(payment_amount) as order_value_dollars
 
     from payments
     group by 1, 2
